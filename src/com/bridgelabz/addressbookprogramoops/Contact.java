@@ -4,11 +4,17 @@ public class Contact {
 	String firstName;
 	String lastName;
 	String address;
-	long  phoneNumber;
+	String phoneNumber;
 	String emailID;
 	String city;
 	String state;
-	long  zip;
+	String  zip;
+	
+	/*
+	 *USING GETTER AND SETTER 
+	 * SETTER - Assigning the values to variable using  setter method
+	 * GETTER - Taking the values from variable using getter method
+	 */
 	public String getFirstName() {
 		return firstName;
 	}
@@ -27,10 +33,10 @@ public class Contact {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public long getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(long phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getEmailID() {
@@ -51,16 +57,16 @@ public class Contact {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public long getZip() {
+	public String getZip() {
 		return zip;
 	}
-	public void setZip(long zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 	@Override
 	public String toString() {
-		return "Contact [firstName="+ firstName + ", lastName=" + lastName + ", address=" + address + ", phoneNumber="
-				+ phoneNumber + ", emailID=" + emailID + ", city=" + city + ", state=" + state + ", zip=" + zip + "]";
+		return "Contact [firstName="+ firstName + ",\n lastName=" + lastName + ", \n address=" + address + ",\n phoneNumber="
+				+ phoneNumber + ",\n emailID=" + emailID + ", \ncity=" + city + ",\n state=" + state + ", \nzip=" + zip + "]";
 	}
 	
 	
