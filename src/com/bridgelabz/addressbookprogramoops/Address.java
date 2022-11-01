@@ -104,13 +104,25 @@ public void editContact(){
                     break;
                 default:
                     System.out.println("Invalid input.");
-                    editContact();
+                   editContact();
             }
         }
-      //  else {
-        //	System.out.println(name + " not found");
-      //  }
         }
         System.out.println(name + " not found");
 	}
+public void deleteContact() {
+	System.out.println("Enter name to delete:");
+	String name = sc.next();
+		
+	for(Contact contact : contactArrayList) {
+		if(contact.getFirstName().equalsIgnoreCase(name)) {
+
+			contactArrayList.remove(contact);
+			System.out.println("contact is deleted");	
+		   }
+	    }
+	System.out.println("contact not available");
+	}
 }
+
+
