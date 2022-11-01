@@ -1,14 +1,14 @@
 package com.bridgelabz.addressbookprogramoops;
 
 public class Contact {
-	String firstName;
-	String lastName;
-	String address;
-	String phoneNumber;
-	String emailID;
-	String city;
-	String state;
-	String  zip;
+  private	String firstName;
+  private	String lastName;
+  private	String address;
+  private	String phoneNumber;
+  private	String emailID;
+  private	String city;
+  private	String state;
+  private	String zip;
 	
 	/*
 	 *USING GETTER AND SETTER 
