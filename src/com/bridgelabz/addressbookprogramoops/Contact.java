@@ -9,7 +9,20 @@ public class Contact {
   private	String city;
   private	String state;
   private	String zip;
-	
+
+
+
+	public Contact() {
+	super();
+	firstName = firstName;
+	lastName = lastName;
+	address = address;
+	phoneNumber = phoneNumber;
+	emailID = emailID;
+	city = city;
+	state = state;
+	zip = zip;
+}
 	/*
 	 *USING GETTER AND SETTER 
 	 * SETTER - Assigning the values to variable using  setter method
