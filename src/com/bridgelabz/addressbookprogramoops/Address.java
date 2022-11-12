@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Address {
    static Scanner sc = new Scanner(System.in);
-   ArrayList<Contact> contactArrayList = new ArrayList<Contact>();
+  private  ArrayList<Contact> contactArrayList = new ArrayList<Contact>();
 
 	public void addContact() {
 		 System.out.println("Create new contact :");
@@ -24,21 +24,12 @@ public class Address {
 		 String state = sc.next();
 		 System.out.println("Enter zip code");
 		 String zip = sc.next();
-		 Contact contact = new Contact();
-		 contact.setFirstName(firstName);
-		 contact.setLastName(lastName);
-		 contact.setAddress(address);
-		 contact.setPhoneNumber(phoneNumber);
-		 contact.setEmailID(emailID);
-		 contact.setCity(city);
-		 contact.setState(state);
-		 contact.setZip(zip);
-		 displayContact(contact);
+		Contact contact= new Contact();
+			
 		 contactArrayList.add(contact);
-		
 	}
-public void displayContact(Contact contact) {
- for(int i =0; i <contactArrayList.size();i++) {
+public void displayContact() {
+ for(Contact contact :contactArrayList) {
 	 
 	System.out.println(contact);
    }
