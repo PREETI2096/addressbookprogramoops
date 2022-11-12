@@ -34,12 +34,15 @@ public class Address {
 		 contact.setState(state);
 		 contact.setZip(zip);
 		 displayContact(contact);
+		 contactArrayList.add(contact);
 		
 	}
 public void displayContact(Contact contact) {
-
+ for(int i =0; i <contactArrayList.size();i++) {
+	 
 	System.out.println(contact);
    }
+}
 	
 public void editContact(){
 
@@ -106,6 +109,7 @@ public void editContact(){
                     System.out.println("Invalid input.");
                    editContact();
             }
+            return;
         }
         }
         System.out.println(name + " not found");
@@ -113,16 +117,19 @@ public void editContact(){
 public void deleteContact() {
 	System.out.println("Enter name to delete:");
 	String name = sc.next();
-		
+	boolean isAvailable = false;	
 	for(Contact contact : contactArrayList) {
 		if(contact.getFirstName().equalsIgnoreCase(name)) {
-
+                   isAvailable = true;
 			contactArrayList.remove(contact);
 			System.out.println("contact is deleted");	
+			break;
 		   }
 	    }
+	if(isAvailable == false) {
 	System.out.println("contact not available");
 	}
+}
 }
 
 
