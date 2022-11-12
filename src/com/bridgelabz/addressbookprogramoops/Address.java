@@ -10,22 +10,52 @@ public class Address {
     static HashMap<String, ArrayList<Contact>> hashmap = new HashMap<>();
     // method For Adding Multiple Address Book
     public static void AddressBook(Address addressBook) {
-        int num;
-        do {
-            System.out.println("Enter Name For Address Book.");
-            String AddressBookName = sc.next();
-            if (hashmap.containsKey(AddressBookName)) {
-                System.out.println("The AddressBook already contains.");
+        System.out.println("Select the Choice:\n1. Add Address Book \n2. Search City or State.");
+        int ch = sc.nextInt();
+        switch (ch) {
+            case 1:
+                int selection;
+                do {
+                    System.out.println("Enter Name For Address Book");
+                    String AddressBookName = sc.next();
+//                contactsDetails.add(AddressBookName);
+                    if (hashmap.containsKey(AddressBookName)) {
+                        System.out.println("The AddressBook already contains");
+                        break;
+                    } else {
+                        ArrayList<Contact> contactDetails1 = new ArrayList<>();
+                        addressBook.menuChoose(addressBook, contactDetails1);
+                        hashmap.put(AddressBookName,contactDetails1);
+                    }
+                    System.out.println("AddressBook Added" + hashmap + " ");
+                    System.out.println("1. Add New Address Book \n2. Search Contact by City or State \n3. Exit");
+                    selection = sc.nextInt();
+                } while (selection == 1);
+            case 2:
+                System.out.println("Enter City or State name to search ");
+                String name = sc.next();
+                SearchInMultipleBook(name);
                 break;
-            } else {
-                ArrayList<Contact> contactDetails = new ArrayList<>();
-                addressBook.menuChoose(addressBook, contactDetails);
-                hashmap.put(AddressBookName, contactDetails);
+            default:
+        }
+    }
+    //Search person in a Multiple Address book.
+    private static List<Contact> SearchInMultipleBook(String name) {
+        for (Map.Entry<String, ArrayList<Contact>> entry : hashmap.entrySet()) {
+            for (Contact contacts : entry.getValue()) {
+                if (contacts.getCity().equals(name) || contacts.getState().equals(name)) {
+                    System.out.println("\nAddress Book Name :" + entry.getKey());
+                    System.out.println("First Name :" + contacts.getFirstName());
+                    System.out.println("Last Name :" + contacts.getLastName());
+                    System.out.println("Email-ID :" + contacts.getEmailID());
+                    System.out.println("Address :" + contacts.getAddress());
+                    System.out.println("City Name :" + contacts.getCity());
+                    System.out.println("Contact Number :" + contacts.getPhoneNumber());
+                }
             }
-            System.out.println("AddressBook Are" + hashmap + " ");
-            System.out.println("To continue the Press 1 or any other key to exit.");
-            num = sc.nextInt();
-        } while (num == 1);
+        }
+        System.out.printf("No record found:");
+        return null;
     }
  /*
     Create addDetails method
@@ -187,42 +217,42 @@ public class Address {
             }
         }
     }
-        public static void menuChoose(Address addressBook, ArrayList<Contact> contactDetails){
-            Scanner sc = new Scanner(System.in);
-            int chooseNumber;
-            do {
-                System.out.println("Enter the number that you want to choose to perform the certain task");
-                System.out.println("1. Add Details \n2. Edit Details \n3. Delete Details \n4. Display Details \n5. exit ");
-                chooseNumber = sc.nextInt();
+    public static void menuChoose(Address addressBook, ArrayList<Contact> contactDetails){
+        Scanner sc = new Scanner(System.in);
+        int chooseNumber;
+        do {
+            System.out.println("Enter the number that you want to choose to perform the certain task");
+            System.out.println("1. Add Details \n2. Edit Details \n3. Delete Details \n4. Display Details \n5. exit ");
+            chooseNumber = sc.nextInt();
 
-                switch (chooseNumber){
-                        /*  Add contact details in address book */
-                    case 1:
-                        System.out.println("Add Details");
-                        addressBook.addDetails(contactDetails);
-                        break;
-                    case 2:
-                        /*  Edit contact details in address book */
-                        System.out.println("Edit details");
-                        addressBook.editDetails(contactDetails);
-                        break;
-                        /*  Delete contact details */
-                    case 3:
-                        System.out.println("Delete Details");
-                        addressBook.deleteContact(contactDetails);
-                        break;
-                        /*  Display contact details */
-                    case 4:
-                        System.out.println("Display details");
-                        addressBook.displayContacts(contactDetails);
-                        break;
-                    case 5:
-                        System.out.println("Exit");
-                        break;
-                    default:
-                        System.out.println("invalid Option choose");
-                        break;
-                }
-            }while (chooseNumber != 5 );
-        }
-}
+            switch (chooseNumber){
+                    /*  Add contact details in address book */
+                case 1:
+                    System.out.println("Add Details");
+                    addressBook.addDetails(contactDetails);
+                    break;
+                case 2:
+                    /*  Edit contact details in address book */
+                    System.out.println("Edit details");
+                    addressBook.editDetails(contactDetails);
+                    break;
+                    /*  Delete contact details */
+                case 3:
+                    System.out.println("Delete Details");
+                    addressBook.deleteContact(contactDetails);
+                    break;
+                    /*  Display contact details */
+                case 4:
+                    System.out.println("Display details");
+                    addressBook.displayContacts(contactDetails);
+                    break;
+                case 5:
+                    System.out.println("Exit");
+                    break;
+                default:
+                    System.out.println("invalid Option choose");
+                    break;
+            }
+        }while (chooseNumber != 5 );
+    }
+	}
